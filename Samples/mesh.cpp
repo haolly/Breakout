@@ -6,6 +6,8 @@
 
 // System Headers
 #include <stb_image.h>
+#include <Mesh.hpp>
+
 
 // Define Namespace
 namespace Mirage
@@ -167,3 +169,4 @@ namespace Mirage
         }   return textures;
     }
 };
+

@@ -33,7 +33,10 @@ include_directories(Glitter/Headers/
                     Glitter/Vendor/glad/include/
                     Glitter/Vendor/glfw/include/
                     Glitter/Vendor/glm/
+                    Glitter/Vendor/irrKlang/include/
                     Glitter/Vendor/stb/)
+
+include_directories(/usr/local/include/freetype2/)
 
 file(GLOB VENDORS_SOURCES Glitter/Vendor/glad/src/glad.c)
 file(GLOB PROJECT_HEADERS Glitter/Headers/*.hpp)
@@ -53,12 +56,14 @@ source_group("Shaders" FILES ${PROJECT_SHADERS})
 source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Vendors" FILES ${VENDORS_SOURCES})
 
+link_directories("/usr/local/lib")
+
 add_definitions(-DGLFW_INCLUDE_NONE
                 -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\")
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} ${PROJECT_HEADERS}
                                ${PROJECT_SHADERS} ${PROJECT_CONFIGS}
-                               ${VENDORS_SOURCES})
-target_link_libraries(${PROJECT_NAME} assimp glfw
+                               ${VENDORS_SOURCES} Glitter/Sources/Mesh.cpp Glitter/Headers/Mesh.hpp Glitter/Sources/SpriteRenderer.cpp Glitter/Headers/SpriteRenderer.hpp Glitter/Sources/Shader.cpp Glitter/Headers/Shader.hpp Glitter/Sources/Texture2D.cpp Glitter/Headers/Texture2D.hpp Glitter/Sources/GameObject.cpp Glitter/Headers/GameObject.hpp Glitter/Sources/GameLevel.cpp Glitter/Headers/GameLevel.hpp Glitter/Sources/Game.cpp Glitter/Headers/Game.hpp Glitter/Sources/ResourceManager.cpp Glitter/Headers/ResourceManager.hpp Glitter/Sources/Ball.cpp Glitter/Headers/Ball.hpp Glitter/Sources/ParticleGenerator.cpp Glitter/Headers/ParticleGenerator.hpp Glitter/Sources/PostProcessor.cpp Glitter/Headers/PostProcessor.hpp Glitter/Sources/PowerUp.cpp Glitter/Headers/PowerUp.hpp Glitter/Sources/TextRenderer.cpp Glitter/Headers/TextRenderer.hpp)
+target_link_libraries(${PROJECT_NAME} assimp glfw  irrklang freetype
                       ${GLFW_LIBRARIES} ${GLAD_LIBRARIES}
                       BulletDynamics BulletCollision LinearMath)
 set_target_properties(${PROJECT_NAME} PROPERTIES
