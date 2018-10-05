@@ -1,3 +1,13 @@
+# Breakout
+This is the final code in the tutorial [Breakout](https://learnopengl.com/In-Practice/2D-Game/Breakout) at [learnopengl.com](https://learnopengl.com) 
+
+TODO LIST:
+- [ ] Texture atlas
+- [ ] Instanced rendering
+- [ ] Space partitioning algorithms
+
+ref https://learnopengl.com/In-Practice/2D-Game/Final-thoughts
+
 # [Glitter](http://polytonic.github.io/Glitter/)
 ![Screenshot](http://i.imgur.com/MDo2rsy.jpg)
 
